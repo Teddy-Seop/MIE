@@ -4,27 +4,17 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({
-  name: 'user',
+  name: 'product',
 })
-export class UserEntity {
+export class ProductEntity {
   @PrimaryGeneratedColumn()
   public id: number;
-
-  @Column({
-    type: 'varchar',
-  })
-  public email: string;
-
-  @Column({
-    type: 'varchar',
-  })
-  public password: string;
 
   @Column({
     type: 'varchar',
@@ -32,26 +22,40 @@ export class UserEntity {
   public name: string;
 
   @Column({
-    type: 'varchar',
+    type: 'int',
   })
-  public phone: string;
+  public price: number;
+
+  @Column({
+    type: 'boolean',
+  })
+  public isDiscount: boolean;
+
+  @Column({
+    type: 'int',
+  })
+  public discountRate: number;
+
+  @Column({
+    type: 'boolean',
+  })
+  public isActive: boolean;
 
   @CreateDateColumn({
-    type: 'timestamp',
+    type: 'datetime',
   })
   public createdAt: Date;
 
   @UpdateDateColumn({
-    type: 'timestamp',
+    type: 'datetime',
   })
   public updatedAt: Date;
 
   @DeleteDateColumn({
-    type: 'timestamp',
-    nullable: true,
+    type: 'datetime',
   })
-  public deletedAt?: Date;
+  public deletedAt: Date;
 
-  @OneToOne((type) => ShopEntity, (shop) => shop.user)
+  @ManyToOne((type) => ShopEntity, (shop) => shop.products)
   public shop?: ShopEntity;
 }

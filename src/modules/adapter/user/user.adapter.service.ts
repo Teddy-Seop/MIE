@@ -7,12 +7,10 @@ export class UserAdapterService {
   constructor(private readonly userRepository: UserRepository) {}
 
   public async getUser(userId: number): Promise<UserEntity> {
-    const UserEntity: UserEntity = await this.userRepository.findOneOrFail(
-      userId,
-    );
+    const user: UserEntity = await this.userRepository.findOneOrFail(userId);
 
-    console.log(UserEntity);
+    console.log(user);
 
-    return UserEntity;
+    return user;
   }
 }
