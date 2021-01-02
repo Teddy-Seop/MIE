@@ -1,17 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '../../database/entities/user.entity';
-import { UserRepository } from '../../database/repositories';
+import { UserEntity } from '@/modules/database/entities/user.entity';
+import { UserRepository } from '@/modules/database/repositories';
 
 @Injectable()
 export class UserAdapterService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  public async getUser(userId: number): Promise<User> {
-    console.log(2);
-    const user: User = await this.userRepository.findOneOrFail(userId);
+  public async getUser(userId: number): Promise<UserEntity> {
+    const UserEntity: UserEntity = await this.userRepository.findOneOrFail(
+      userId,
+    );
 
-    console.log(user);
+    console.log(UserEntity);
 
-    return user;
+    return UserEntity;
   }
 }

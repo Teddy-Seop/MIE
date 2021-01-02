@@ -1,8 +1,14 @@
-import { Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
+import { Global, Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
+import * as Repositories from './repositories';
+
+@Global()
 @Module({
-  providers: [...databaseProviders],
-  exports: [...databaseProviders],
+  imports: [
+    TypeOrmModule.forRoot(),
+    TypeOrmModule.forFeature([...Object.values(Repositories)]),
+  ],
+  exports: [TypeOrmModule],
 })
 export class DatabaseModule {}
