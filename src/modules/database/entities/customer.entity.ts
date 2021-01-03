@@ -1,9 +1,12 @@
 import { ShopEntity } from './shop.entity';
+import { PurchaseEntity } from './purchase.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -12,7 +15,7 @@ import {
 @Entity({
   name: 'user',
 })
-export class UserEntity {
+export class CustomerEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
@@ -36,11 +39,6 @@ export class UserEntity {
   })
   public phone: string;
 
-  @Column({
-    type: 'varchar',
-  })
-  public businessLicenseNumber: string;
-
   @CreateDateColumn({
     type: 'timestamp',
   })
@@ -57,6 +55,9 @@ export class UserEntity {
   })
   public deletedAt?: Date;
 
-  @OneToOne((type) => ShopEntity, (shop) => shop.user)
+  @ManyToOne((type) => ShopEntity, (shop) => shop.customers)
   public shop?: ShopEntity;
+
+  @OneToMany((type) => PurchaseEntity, (purchase) => purchase.customer)
+  public purchases?: PurchaseEntity[];
 }

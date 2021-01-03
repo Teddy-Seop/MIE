@@ -10,6 +10,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { ProductEntity } from './product.entity';
+import { CustomerEntity } from './customer.entity';
+import { PurchaseEntity } from './purchase.entity';
 
 @Entity({
   name: 'shop',
@@ -62,6 +64,12 @@ export class ShopEntity {
   @OneToOne((type) => UserEntity, (user) => user.shop)
   public user?: UserEntity;
 
+  @OneToMany((type) => CustomerEntity, (customer) => customer.shop)
+  public customers?: CustomerEntity[];
+
   @OneToMany((type) => ProductEntity, (product) => product.shop)
   public products?: ProductEntity[];
+
+  @OneToMany((type) => PurchaseEntity, (purchase) => purchase.shop)
+  public purchases?: PurchaseEntity[];
 }

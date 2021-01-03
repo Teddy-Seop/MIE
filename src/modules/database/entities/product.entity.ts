@@ -1,10 +1,12 @@
 import { ShopEntity } from './shop.entity';
+import { PurchaseEntity } from './purchase.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -58,4 +60,7 @@ export class ProductEntity {
 
   @ManyToOne((type) => ShopEntity, (shop) => shop.products)
   public shop?: ShopEntity;
+
+  @OneToMany((type) => PurchaseEntity, (purchase) => purchase.product)
+  public purchases: PurchaseEntity[];
 }
