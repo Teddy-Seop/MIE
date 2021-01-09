@@ -11,8 +11,6 @@ export class ProductAdapterService {
       productId,
     );
 
-    console.log(product);
-
     return product;
   }
 }

@@ -11,8 +11,6 @@ export class PurchaseAdapterService {
       purchaseId,
     );
 
-    console.log(purchase);
-
     return purchase;
   }
 }

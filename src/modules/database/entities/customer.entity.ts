@@ -7,13 +7,12 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({
-  name: 'user',
+  name: 'customer',
 })
 export class CustomerEntity {
   @PrimaryGeneratedColumn()

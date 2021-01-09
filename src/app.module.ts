@@ -5,6 +5,7 @@ import { DatabaseModule } from './modules/database/database.module';
 import { ShopAdapterModule } from './modules/adapter/shop';
 import { ProductAdapterModule } from './modules/adapter/product/product.adapter.module';
 import { PurchaseAdapterModule } from './modules/adapter/purchase/purchase.adapter.module';
+import { CustomerAdapterModule } from './modules/adapter/customer/customer.adapter.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PurchaseAdapterModule } from './modules/adapter/purchase/purchase.adapt
     ShopAdapterModule,
     ProductAdapterModule,
     PurchaseAdapterModule,
+    CustomerAdapterModule,
   ],
   controllers: [AppController],
 })

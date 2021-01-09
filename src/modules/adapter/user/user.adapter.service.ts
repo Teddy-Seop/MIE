@@ -9,8 +9,6 @@ export class UserAdapterService {
   public async getUser(userId: number): Promise<UserEntity> {
     const user: UserEntity = await this.userRepository.findOneOrFail(userId);
 
-    console.log(user);
-
     return user;
   }
 }

@@ -9,8 +9,6 @@ export class ShopAdapterService {
   public async getShop(shopId: number): Promise<ShopEntity> {
     const shop: ShopEntity = await this.shopRepository.findOneOrFail(shopId);
 
-    console.log(shop);
-
     return shop;
   }
 }
