@@ -7,9 +7,12 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { PointEntity } from './point.entity';
+import { LikeEntity } from './like.entity';
 
 @Entity({
   name: 'customer',
@@ -59,4 +62,10 @@ export class CustomerEntity {
 
   @OneToMany((type) => PurchaseEntity, (purchase) => purchase.customer)
   public purchases?: PurchaseEntity[];
+
+  @OneToOne((type) => PointEntity, (point) => point.customer)
+  public point?: PointEntity;
+
+  @OneToOne((type) => LikeEntity, (like) => like.customer)
+  public like?: LikeEntity;
 }

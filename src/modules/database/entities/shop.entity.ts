@@ -12,6 +12,7 @@ import {
 import { ProductEntity } from './product.entity';
 import { CustomerEntity } from './customer.entity';
 import { PurchaseEntity } from './purchase.entity';
+import { PointEntity } from './point.entity';
 
 @Entity({
   name: 'shop',
@@ -72,4 +73,7 @@ export class ShopEntity {
 
   @OneToMany((type) => PurchaseEntity, (purchase) => purchase.shop)
   public purchases?: PurchaseEntity[];
+
+  @OneToMany((type) => PointEntity, (point) => point.shop)
+  public points: PointEntity[];
 }

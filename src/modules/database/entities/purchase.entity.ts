@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -10,6 +11,7 @@ import { PurchaseStatusType } from '@/type/purchase-status.type';
 import { ProductEntity } from './product.entity';
 import { ShopEntity } from './shop.entity';
 import { CustomerEntity } from './customer.entity';
+import { ReviewEntity } from './review.entity';
 
 @Entity({
   name: 'purchase',
@@ -56,4 +58,7 @@ export class PurchaseEntity {
 
   @ManyToOne((type) => ShopEntity, (shop) => shop.purchases)
   public shop?: ShopEntity;
+
+  @OneToOne((type) => ReviewEntity, (review) => review.purchase)
+  public review?: ReviewEntity;
 }

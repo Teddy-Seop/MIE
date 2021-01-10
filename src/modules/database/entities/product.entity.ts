@@ -7,9 +7,12 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { ReviewEntity } from './review.entity';
+import { LikeEntity } from './like.entity';
 
 @Entity({
   name: 'product',
@@ -63,4 +66,10 @@ export class ProductEntity {
 
   @OneToMany((type) => PurchaseEntity, (purchase) => purchase.product)
   public purchases: PurchaseEntity[];
+
+  @ManyToOne((type) => ReviewEntity, (review) => review.product)
+  public reviews?: ReviewEntity[];
+
+  @OneToOne((type) => LikeEntity, (like) => like.product)
+  public like?: LikeEntity;
 }
