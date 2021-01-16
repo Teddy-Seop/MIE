@@ -14,6 +14,7 @@ import {
 import { ReviewEntity } from './review.entity';
 import { LikeEntity } from './like.entity';
 import { ImageEntity } from './image.entity';
+import { CategoryEntity } from './category.entity';
 
 @Entity({
   name: 'product',
@@ -76,4 +77,7 @@ export class ProductEntity {
 
   @OneToMany((type) => ImageEntity, (image) => image.review)
   public images: ImageEntity[];
+
+  @ManyToOne((type) => CategoryEntity, (category) => category.products)
+  public category: CategoryEntity;
 }
