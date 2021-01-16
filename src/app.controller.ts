@@ -1,16 +1,16 @@
 import { Controller, Get } from '@nestjs/common';
-import { CustomerAdapterService } from './modules/adapter/customer';
+import { ReviewAdapterService } from './modules/adapter/review';
 import { UserAdapterService } from './modules/adapter/user/user.adapter.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly userAdapterService: UserAdapterService,
-    private readonly customerAdapterService: CustomerAdapterService,
+    private readonly reviewAdapterService: ReviewAdapterService,
   ) {}
 
   @Get()
   async getHello() {
-    return this.customerAdapterService.getCustomer(1);
+    return this.reviewAdapterService.getReview(1);
   }
 }

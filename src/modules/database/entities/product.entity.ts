@@ -13,6 +13,7 @@ import {
 } from 'typeorm';
 import { ReviewEntity } from './review.entity';
 import { LikeEntity } from './like.entity';
+import { ImageEntity } from './image.entity';
 
 @Entity({
   name: 'product',
@@ -72,4 +73,7 @@ export class ProductEntity {
 
   @OneToOne((type) => LikeEntity, (like) => like.product)
   public like?: LikeEntity;
+
+  @OneToMany((type) => ImageEntity, (image) => image.review)
+  public images: ImageEntity[];
 }

@@ -12,6 +12,10 @@ import { ShopAdapterModule } from './modules/adapter/shop';
 import { ProductAdapterModule } from './modules/adapter/product';
 import { PurchaseAdapterModule } from './modules/adapter/purchase';
 import { CustomerAdapterModule } from './modules/adapter/customer';
+import { ImageAdapterModule } from './modules/adapter/image/image.adapter.module';
+import { LikeAdapterModule } from './modules/adapter/like/like.adapter.module';
+import { PointAdapterModule } from './modules/adapter/point/point.adapter.module';
+import { ReviewAdapterModule } from './modules/adapter/review/review.adapter.module';
 
 @Module({
   imports: [
@@ -30,6 +34,10 @@ import { CustomerAdapterModule } from './modules/adapter/customer';
     ProductAdapterModule,
     PurchaseAdapterModule,
     CustomerAdapterModule,
+    ImageAdapterModule,
+    LikeAdapterModule,
+    PointAdapterModule,
+    ReviewAdapterModule,
   ],
   controllers: [AppController],
 })
