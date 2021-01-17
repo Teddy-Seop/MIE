@@ -16,6 +16,7 @@ import { ImageAdapterModule } from './modules/adapter/image/image.adapter.module
 import { LikeAdapterModule } from './modules/adapter/like/like.adapter.module';
 import { PointAdapterModule } from './modules/adapter/point/point.adapter.module';
 import { ReviewAdapterModule } from './modules/adapter/review/review.adapter.module';
+import { CategoryAdapterModule } from './modules/adapter/category/category.adapter.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { ReviewAdapterModule } from './modules/adapter/review/review.adapter.mod
     LikeAdapterModule,
     PointAdapterModule,
     ReviewAdapterModule,
+    CategoryAdapterModule,
   ],
   controllers: [AppController],
 })

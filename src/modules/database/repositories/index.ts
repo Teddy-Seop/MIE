@@ -7,3 +7,4 @@ export { ImageRepository } from './image.repository';
 export { LikeRepository } from './like.repository';
 export { PointRepository } from './point.repository';
 export { ReviewRepository } from './review.repository';
+export { CategoryRepository } from './category.repository';
